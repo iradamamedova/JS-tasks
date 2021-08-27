@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Document</title>
+    </head>
+    <body>
+        <h2>Загадайте число от 0 до 100</h2>
+        <button onclick = "more()"> > </button>
+        <button onclick = "equal()"> = </button>
+        <button onclick = "less()"> < </button>
+        <p id = "ex10"></p>
+        <script>
+            let ex10 = document.getElementById("ex10");
+                let kod = "";
+                let n = 0;
+                let a = 0;
+                let b = 100;
+                doit();
+                function doit() {
+                    for (let i = a; i <= b; i++) {
+                        n = Math.floor((a + b) / 2);
+                    }
+                
+                ex10.innerHTML = "Ваше число >, < или = " + n + "?"  + "<br />";
+                ex10.innerHTML += kod;
+                }
+                function more() {
+                    a = n + 1;
+                    doit();
+                }
+                function less() {
+                    b = n;
+                    doit();
+                }
+                function equal() {
+                    ex10.innerHTML = "Ваше число " + n + "!";
+                }
+        </script>
+    </body>
+</html>

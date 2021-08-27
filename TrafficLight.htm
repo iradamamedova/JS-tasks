@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Document</title>
+        <style>
+            #svetofor {width: 100px; height: 300px; background-color: #111;margin: 5px;padding: 5px;}
+            #svetofor div {margin: 5px; box-shadow: 0 0 3px white; width: 90px; height: 90px; border-radius: 50%;}
+            button {width: 100px; height: 50px; background-color: #a5a5a5;margin: 5px;}
+        </style>
+    </head>
+    <body>
+        <div id="svetofor">
+            <div class="light" id="green"></div>
+            <div class="light" id="yellow"></div>
+            <div class="light" id="red"></div>
+        </div>
+        <button>NEXT</button>
+        <script>
+            let green = document.getElementById("green");
+            let yellow = document.getElementById("yellow");
+            let red = document.getElementById("red");
+            let b = document.getElementsByTagName("button")[0];
+            let light = document.getElementsByClassName("light");
+
+
+            let cvet = ["", "green", "yellow", "red"];
+            let fonar = ["", green, yellow, red];
+            let count = 0;
+            
+            b.onclick = function() {
+                for (let i = 0; i < 3; i++) {
+                    light[i].style.backgroundColor = "black";
+                }
+                count >= 3 ? count = 1 : count++;
+                fonar[count].style.backgroundColor = cvet[count];
+            }
+
+        </script>
+    </body>
+</html>

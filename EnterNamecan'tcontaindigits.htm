@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Document</title>
+    </head>
+    <style>
+        body { margin: 0; height: 100vh; display: flex; }
+        main { margin: auto; }
+        div { width: 400px; height: 150px; background: #aeeee0; border-radius: 10px;
+            box-shadow: 0 0 8px grey; text-align: center; font: 1.1em Tahoma; color: #3b3939; padding: 10px;}
+        input {padding: 5px; margin: 40px 0 0 0; outline: none; font: 1em Tahoma;}
+    </style>
+    <body>
+        <main>
+            <div>Enter your name (name can't contain digits)
+                <input type="text" id="name" oninput="writeName()" />
+            </div>
+        </main>
+        <script>
+            let name = document.getElementById("name");
+
+            function writeName() {
+                let last = name.value.slice(-1);
+                if(last >= 'A' || last < 'Z' && last > 'a' || last > 'z' || last == " " ) name.value;
+                else name.value = name.value.slice( 0 , -1 );
+            }
+
+        </script>
+    </body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <style>
+            body { margin: 0;}
+            main { height: 100vh; width: 100%; } 
+            #info {margin: auto; width: 200px; height: 100px; padding: 20px;
+                background: #EEE; border-radius: 0 0 20px 20px; box-shadow: 0 0 10px #666}
+            p {margin: 0 0 10px 0}
+        </style>
+    </head>
+    <body>
+        <main>
+            <div id="info"></div>
+        </main>
+        
+        <script>
+            let count = 0;
+            let start;
+            let main = new function() {
+                this.elem = document.getElementsByTagName("main")[0];
+                this.w = this.elem.offsetWidth;
+                this.h = this.elem.offsetHeight;
+            }
+            let dot = {
+                r: 10,
+                color: 'red',
+                define() {
+                    this.x = rand(main.w - 2 * this.r);
+                    this.y = rand(main.h - 2 * this.r);
+                    this.put();
+                },
+                put(){                                    
+                    main.elem.innerHTML += '<div id="point"></div>';
+                    dot.elem = document.getElementById("point");
+                    dot.elem.style.position = "fixed";
+                    dot.elem.style.width = 2 * dot.r + "px";
+                    dot.elem.style.height = 2 * dot.r + "px";
+                    dot.elem.style.borderRadius = "50%";
+                    dot.elem.style.background = dot.color;
+                    dot.elem.style.left = dot.x + "px";
+                    dot.elem.style.top = dot.y + "px";
+                }
+            }
+            next();
+
+            function next() {
+                if(dot.elem) dot.elem.remove();
+                clearTimeout(start);                
+                dot.define();
+                start = setTimeout(next, 2000);
+            }
+            
+
+            main.elem.onclick = function(e){
+                if( e.clientX > dot.x && e.clientX < dot.x + 2 * dot.r &&
+                    e.clientY > dot.y && e.clientY < dot.y + 2 * dot.r ) {
+                        kod = '<h1>Score: ' + ++count + '</h1>';
+                        document.getElementById("info").innerHTML = kod;
+                        next();
+                }
+            }
+
+            function rand(max) {
+                return Math.floor(Math.random() * (max + 1) );
+            }
+        </script>
+    </body>
+</html>

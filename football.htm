@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Document</title>
+        <style>
+            body {margin: 0;position: relative;}
+            #ball {transition: all 1s linear;}
+        </style>
+    </head>
+    <body>
+        <img src="img/field.jpg" id="field" />
+        <img src="img/ball.png" id="ball" />
+        <script>
+            let st = document.getElementsByTagName("style")[0];
+            
+            ball = {
+                width: 100,
+                height: 100,
+                zIndex: 5,
+                show: function() {
+                    this.elem = document.getElementById("ball");
+                    this.elem.style.width = this.width + "px";
+                    this.elem.style.height = this.height + "px";
+                    this.elem.style.position = "absolute";
+                    this.elem.style.zIndex = this.zIndex;
+                    this.elem.style.left = (document.documentElement.clientWidth - this.width)/2 + "px";
+                    this.elem.style.top = (document.documentElement.clientHeight - this.height)/2 + "px";
+                },
+                move: field.onclick = function(event){
+                        this.elem = document.getElementById("ball");
+
+                        if(event.clientX + ball.width/2 < document.documentElement.clientWidth) 
+                            this.elem.style.left = (event.clientX - ball.width/2) + "px";
+                        else this.elem.style.left = document.documentElement.clientWidth - ball.width + "px";
+
+                        if(event.clientY + ball.height/2 < document.documentElement.clientHeight) 
+                            this.elem.style.top = (event.clientY - ball.height/2) + "px";
+                        else this.elem.style.top = document.documentElement.clientHeight - ball.height + "px";
+
+                        if(event.clientX < ball.width/2) this.elem.style.left = 0 + "px";
+                        if(event.clientY < ball.height/2) this.elem.style.top = 0 + "px";
+                }
+                
+            };
+            field = {
+                width: 100,
+                height: 100,
+                show: function() {
+                    this.elem = document.getElementById("field");
+                    this.elem.style.width = this.width + "%";
+                    this.elem.style.height = this.height + "vh";
+                }
+            };
+
+            field.show();           
+            ball.show();  
+        </script>
+    </body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <title>Document</title>
+    </head>
+    <style>
+        body {margin: 0; height: 100vh ;display: flex; position: relative;background: url('img/palm.jpg') center/cover;}
+        #maska {width: 100%; height:100vh ; position:absolute; z-index: -1; background: #000000a4;display: none;}
+        #openWindow {width: 80px; height: 35px;margin: auto; background-color: #e4e4e4; font: 1.1em Tahoma;}
+        #d {width: 300px; height: 100px;border-radius: 10px; align-items: center; margin: auto; position:absolute; z-index: 3; right: 50%; bottom: 50%; transform: translate(50%,50%);
+            background: #cbccf7;text-align: center; box-shadow: 0 0 30px #ff55d4; display:none}
+        #close {background: #b32d15; color: white; width: 30px; height: 25px;position: absolute; right: 5px; top: 5px;}
+        p {margin: 30px;  font: 1.1em Tahoma;}
+    </style>
+    <body>
+        <div id="maska"></div>
+        <button id="openWindow">Open</button>
+        <div id="d"></div>
+        <script>
+            let d = document.getElementById("d");
+            let maska = document.getElementById("maska");
+            let close = document.getElementById("close");
+            let openWindow = document.getElementById("openWindow");
+
+            openWindow.onclick = function() {
+                d.style.display = "flex";
+                maska.style.display = "block";
+                d.innerHTML = '<p>Hello from Modal Window</p>';
+                d.innerHTML += "<button id = 'close' onclick = 'closeWindow()'>x</button>";
+            }
+            function  closeWindow() {
+                maska.style.display = "none";
+                d.style.display = "none";
+            }
+            window.onclick = function() {
+                if (event.target == document.body) {
+                    d.style.display = "none";
+                    maska.style.display = "none";
+                };
+            }
+            
+        </script>
+    </body>
+</html>

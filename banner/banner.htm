@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+		<script src="https://kit.fontawesome.com/30908b1d2e.js" crossorigin="anonymous"></script>
+ 		<style>
+			 * { box-sizing: border-box; }
+            body {margin: 0}
+            #banner {
+                position: relative;
+                width: 300px;
+                height: 600px;
+                border: 1px solid silver;
+                overflow: hidden;
+				background-image: linear-gradient(#c5dfe5, #d4e2e1);
+            }
+            #banner > div { position: absolute; }
+			#icon {
+				font: bold 6em Arial;
+				width:100%;
+				text-align:center;
+			}
+			span { color:#fdb518 }
+			#text1 {
+				top:100px;
+				width:100%;
+				text-align:center;
+				font: .8em Arial;
+				color: #6f8b8f;
+				text-transform: uppercase;
+			}
+			#cloud1 {
+				width:500px;
+				height:600px;
+				top:120px;
+				background: url('img/cloud.png') bottom left/500px;
+				animation: cloud1 16s linear -2s infinite ;
+			}
+			#cloud2 {
+				width:500px;
+				height:600px;
+				top:220px;
+				background: url('img/cloud.png') bottom left/500px;
+				animation: cloud2 12s linear -3s infinite ;
+			}
+			#text2 {
+				top:170px;
+				width:100%;
+				text-align:center;
+				font:bold 2em Arial;
+				color: #6f8b8f;
+				text-transform: uppercase;
+				animation: text2 1s ease-in 3s backwards;
+				opacity:0;
+			}
+			#text3 {
+				top:170px;
+				width:100%;
+				text-align:center;
+				font:bold 2em Arial;
+				color: #6f8b8f;
+				text-transform: uppercase;
+				animation: text3 1s ease-in 4s forwards;
+				opacity:0;
+			}
+			#icon1 {
+			width:70px;
+			height:70px;
+			background:#fdb518;
+			border-radius:10px;
+			padding: 10px;
+			border-bottom: 4px solid #db9a18;
+			opacity:0;	
+			animation: icon1 4s ease-in 2s alternate;
+			}
+			#icon2 {
+			width:90px;
+			height:90px;
+			background:#46a2aa;
+			border-radius:10px;
+			padding: 15px 5px 10px 15px;
+			border-bottom:6px solid #4c7e85;
+			opacity:0;
+			animation: icon2 9s ease-in alternate;
+			}
+			#icon3 {
+			width:80px;
+			height:80px;
+			background:#fdb518;
+			border-radius:10px;
+			padding: 10px;
+			border-bottom:5px solid #db9a18;
+			opacity:0;
+			animation: icon3 6s ease-in 1.5s alternate;
+			}
+			i {
+			color:#fff;
+			font-size: 3em;
+			text-shadow: 0 1px 5px #333;
+			}
+			#btn {
+				width:270px;
+				height:65px;
+				padding:20px 0 20px 60px;
+				background:#fdb812;
+				border-radius: 5px;
+				border-bottom:3px solid #db9a18;
+				opacity:0;
+				animation: btn 2s 9s forwards;
+				margin:auto;
+				left: 15px;
+			}
+			#btn span {
+				font:bold 1.2em Arial;
+				color: #fff;
+			}
+			#btn i {font-size: 1em;}
+			#icon4 {
+			width:70px;
+			height:70px;
+			background:#46a2aa;
+			border-radius:10px;
+			padding: 10px;
+			border-bottom: 4px solid #4c7e85;
+			opacity:0;
+			animation: icon4 4s ease-out 8s forwards alternate;
+			}
+			#icon5 {
+			width:80px;
+			height:80px;
+			background:#fdb812;
+			border-radius:10px;
+			padding: 10px;
+			border-bottom: 5px solid #db9a18;
+			opacity:0;
+			animation: icon5 4s ease-out 9s forwards alternate;
+			}
+			 @keyframes icon4 {
+                0% { opacity:.8; bottom:-70px; left:-35px; transform: rotate(20deg) }
+                25% { opacity:.8; bottom:150px; left:70px;  transform: rotate(20deg)}
+				50% { opacity:.8; bottom:140px; left:65px;  transform: rotate(20deg) }
+				75% { opacity:.8; bottom:150px; left:70px;  transform: rotate(20deg) }
+				100% { opacity:.8; bottom:140px; left:65px;  transform: rotate(20deg) }
+            }
+			 @keyframes icon5 {
+                0% { opacity:.8; bottom:-80px; left:340px; transform: rotate(-20deg) }
+                25% { opacity:.8; bottom:160px; left:190px;  transform: rotate(-20deg)}
+				50% { opacity:.8; bottom:150px; left:185px;  transform: rotate(-20deg) }
+				75% { opacity:.8; bottom:160px; left:190px;  transform: rotate(-20deg) }
+				100% { opacity:.8; bottom:150px; left:185px;  transform: rotate(-20deg) }
+            }
+			 @keyframes cloud1 {
+                from { left: 100%; }
+                to { left: -500px; }
+            }
+			 @keyframes cloud2 {
+                from { right: 100%; }
+                to { right: -500px; }
+            }
+			 @keyframes text2 {
+                from { opacity:1; right:0; }
+                to { opacity:1; right:-300px; }
+            }
+			@keyframes text3 {
+                from { opacity:1; right:100%; }
+                to { opacity:1; right:0; }
+            }
+			@keyframes icon1 {
+                0% { opacity:0; bottom: 170px; left: 40px; transform: rotate(-20deg) }
+				25% { opacity:.3; bottom: 190px; left: 35px; transform: rotate(-20deg)}
+                50% { opacity:.8; bottom: 170px; left: 40px; transform: rotate(-20deg)}
+				75% { opacity:.8; bottom: 190px; left: 35px; transform: rotate(-20deg)}
+				100% { opacity:.8; bottom:300px; left:-70px; transform: rotate(-50deg)}
+            }
+			@keyframes icon2 {
+				0% { opacity:0; bottom: 60px; left: 100px; transform: rotate(-20deg) }
+				25% { opacity:.3; bottom: 80px; left: 95px; transform: rotate(-20deg)}
+                50% { opacity:.8; bottom: 60px; left: 100px; transform: rotate(-20deg)}
+				75% { opacity:.8; bottom: 80px; left: 95px; transform: rotate(-20deg)}
+				100% { opacity:.8; bottom:400px; left:-90px; transform: rotate(-50deg)}
+            }
+			@keyframes icon3 {
+				0% { opacity:0; bottom: 150px; left: 200px; transform: rotate(-20deg) }
+				25% { opacity:.3; bottom: 170px; left: 195px; transform: rotate(-20deg)}
+                50% { opacity:.8; bottom: 150px; left: 200px; transform: rotate(-20deg)}
+				75% { opacity:.8; bottom: 170px; left: 195px; transform: rotate(-20deg)}
+				100% { opacity:.8; bottom:300px; left:380px; transform: rotate(50deg)}
+            }
+			@keyframes btn { 
+				from { opacity:1; bottom:-65px }
+				to { opacity:1; bottom: 10px }
+			}
+		</style>
+	</head>
+	<body>
+		 <div id="banner">
+			<div id="icon">l+<span>+</span>+</div>
+			<div id="text1">Information technologies <br /> & telecommunications</div>
+			<div id="cloud1"></div>
+			<div id="cloud2"></div>
+			<div id="text2">prejdi na cloudovy system <br /> s office 365</div>
+			<div id="text3">nova dimenzia spoluprace v modernej kancelarnii</div>
+			<div id="icon1"><i class="fab fa-telegram-plane"></i></div>
+			<div id="icon2"><i class="fas fa-cloud"></i></div>
+			<div id="icon3"><i class="fas fa-laptop"></i></div>
+			<div id="btn"><span>Zaujima ta to? <i class="fas fa-angle-right"></i></span></div>
+			<div id="icon4"><i class="far fa-envelope"></i></div>
+			<div id="icon5"><i class="fas fa-laptop"></i></div>
+		 </div>
+	</body>
+</html>
